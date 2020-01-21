@@ -1,0 +1,145 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+/* Basic Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Project-Wide font Definitions */
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+
+/* 1. Header Styles */
+
+
+/* Header Background */
+
+.header {
+    /* 95% Viewport Height */
+    height: 95vh;
+    /* Create Gradient Overlay Header */
+    background-image: linear-gradient( to right bottom, #7ed56fcc, #28b485cb), url(../img/hero.jpg);
+    /* Fit to Viewport */
+    background-size: cover;
+    /* Viewport Position */
+    background-position: top;
+    /* Clip Bottom Corner of Image */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+
+/* Logo Container */
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+
+/* Logo */
+
+.logo {
+    height: 35px;
+}
+
+
+/*
+.logo:hover {
+    animation: moveInRight 1s ease-out;
+}
+*/
+
+
+/* Header Text */
+
+.text-box {
+    /* Moves element to center of parent element */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* Moves start of child element to center */
+    transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+    color: #FFF;
+    text-transform: uppercase;
+    /* Fixes Animation Jitter */
+    backface-visibility: hidden;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+}
+
+
+/* Header Animation */
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+/* 2. Body Styles */

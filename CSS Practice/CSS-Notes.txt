@@ -1,0 +1,110 @@
+//Notes are highlighted w/ Better Comments Extension
+
+Class:  Advanced CSS and SASS: Flexbox, Grid, Animations and More!
+
+! Section 1:  Instructions
+
+    Clone Project:  https://github.com/jonasschmedtmann/advanced-css-course.git
+    Resources:      http://codingheroes.io/resources/
+
+    Tooling:
+        VS Code
+        Firefox
+
+! Section 2:  First Project
+
+    1. Open Starter Code
+    2. Building the Header #1
+        A. Best way to perform basic reset using the universal selector
+            * {margin: 0; padding: 0; box-sizing: border-box;}
+
+        B. How to set project-wide font definitions
+            body {font-family: "Lato", sans-serif; font-weight: 400; font-size: 16px; line-height: 1.7; color: #777;}
+
+        C. How to clip parts of elements using clip-path
+            clip-path: polygon(0 0, 100% 0, 100% 200px, 0 100%);
+            clippy - bennettfeely.com/clippy/
+
+    3. Building the Header #2
+        A. Alt Text
+            Important for SEO Optimization
+        
+        B. H1 element
+            Important for SEO Optimization
+
+        C. Font Customization
+            Weight Spacing, Etc
+
+        D. Absolute Centering    
+            position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+
+    4. Animations
+        A. Keyframes
+        B. Browser Optimization
+            Optimized: Opacity & Transform
+        C. Fix Animation Jitter
+            backface-visibility: hidden;
+
+        D. Common Animation Properties
+
+    5. Animated Button
+
+
+! Section 3:  Behind CSS
+
+
+
+! Section 4:  SASS & NPM
+
+
+
+! Section 5:  More SASS
+
+
+
+! Section 6:  Advanced Responsive Design
+
+
+
+! Section 7:  Master Flexbox!
+
+
+
+! Section 8:  CSS Grid
+
+
+
+! Section 9:  More CSS Grid
+
+
+
+! Section 10: End
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
