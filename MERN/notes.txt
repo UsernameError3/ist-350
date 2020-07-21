@@ -1,0 +1,84 @@
+Auth:
+    Google OAuth: Express + MongoDB + PassportJS
+    Payments: Stripe?
+
+Tech Stack:
+    MongoDB <--> Express / Node API <- (HTTP Request (JSON)) -> React App
+
+
+Node: Javascript runtime used to execute code outside of the browser
+Express: Library that runs in the Node runtime. Has helpers to make dealing with HTTP traffic Easier.
+
+Incoming HTTP Request:
+
+    Request -> (Ports) --> Node:
+                            -> Express
+                                -> Route Handler #1 -> Response
+                                -> Route Handler #2 -> Response
+                                -> Route Handler #3 -> Response
+    Request <- (Ports) <-- Node <- Response
+
+
+Basic Express App:
+
+    CLI: npm init (press enter a bunch)
+    CLI: npm install --save express
+    Create index.js
+
+    Route Handler:
+
+        app.get('/', (req, res) => {
+            res.send({ Development: 'In Progress...'});
+        });
+
+        app -> get -> '/' -> req -> res -> res.send({ hi: 'there' })
+
+            App:  Express App to register this route handler with
+            Get:  Watch for incoming requests with this method
+            '/':  Watch for requests trying to access '/'.
+            Req:  Object representing the incoming request.
+            Res:  Object representing the outgoing response.
+
+            res.send:  Immediately send back some JSON back to whoever made this request.
+
+    Request Types:
+        get:     Get Info
+        post:    Send Info
+        put:     Update all the properties of something
+        delete:  Delete Something
+        patch:   Update one or two properties of something
+
+
+Deployment:
+
+    Heroku:
+
+        Dynamic Port Binding:       Heroku tells us which port our app will use, so we need to make sure we listen to the port they tell us to.
+        Specify Node Environment:   We want to use a specific version of node, so we need to tell Heroku which version we want
+        Specify Start Script:       Instruct Heroku what command to run to start our server running
+        Create .gitignore file:     We don't want to include dependencies, Heroku will do that for us
+
+        First Time Deployment:      Create Heroku Account -> Commit our codebase to git -> Install Heroku CLI and Create App -> Deploy App with Git -> Heroku deploys project
+        Subsequent Deployment:      Deploy App with Git
+
+        Install Heroku CLI + CMD: heroku -v
+        CMD: heroku login
+        CMD: heroku create
+        CMD: git remote add heroku https://git.heroku.com/usernameerror3.git
+        CMD: git push heroku master
+
+        Redeployment:
+        CMD: git push origin
+        CMD: git push heroku master
+
+
+
+
+
+
+
+
+
+
+
+

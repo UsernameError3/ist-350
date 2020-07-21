@@ -48,11 +48,112 @@ Class:  Advanced CSS and SASS: Flexbox, Grid, Animations and More!
         D. Common Animation Properties
 
     5. Animated Button
+        psuedo class: ".class:link"
+        Button Decorations
+
+    6. Button Animation
+        psuedo class: ".class:link::after"
+        animation properties.
 
 
 ! Section 3:  Behind CSS
 
+    1. Three Pillars of Writing Good HTML & CSS:
+        A. Responsive Design
+            - Fluid Layouts
+            - Media Queries
+            - Responsive Images
+            - Correct Units
+            - Desktop-First vs Mobile-First
 
+        B. Maintainable & Scalable Code
+            - Clean
+            - Easy-to-understand
+            - Growth
+            - Reusable
+            - How to organize Files
+            - How to name classes
+            - How to structure HTML
+            
+        C. Web Performance
+            - Less HTTP Requests
+            - Less Code
+            - Compress Code
+            - Use a CSS Preprocessor
+            - Less Images
+            - Compress Images
+
+    2. How CSS Works Behind the Scenes: Overview:
+
+        A. What happens when we load a webpage:
+            - Internet Requests: HTTP, DNS, Etc
+            - Browser Loading -> HTML Parsing -> Document Object Model (DOM - Decoded HTML)
+            - Browser Loading -> CSS Parsing -> Resolve Conflict Decorations (Cascade) & Process Final Values (% to px) -> CSS Object Model (CSSOM - Decoded CSS)
+            - DOM + CSSOM = Render Tree -> Website Rendering: Visual Formatting Model -> Final Rendered Website
+
+
+    3. How CSS is Parsed, Part 1: Cascade & Specifiy
+
+        A. CSS Terminology:
+
+            Example:
+                .my-class {
+                    color: blue;
+                    text-align: center;
+                    font-size: 20px;
+                }
+
+            - Selector:             .my-class
+            - Declaration Block:    {...}
+            - Declaration:          font-size: 20px;
+            - Property:             font-size
+            - Declared Value:       20px;
+
+        B. First step of Parse Phase:
+
+            - Cascade: Process of combining different stylesheets and resolving conflicts between CSS rules and declarations, when more than one rule applies to a certain element.
+            - Importance (Weight) -> Specifity -> Source Order
+            
+            - Importance:
+                1. User !important declarations
+                2. Author !important declarations
+                3. Author declarations
+                4. User declarations
+                5. Default browser declarations
+
+            - Specificity:
+                1. Inline Styles
+                2. IDs
+                3. Classes, Pseudo-Classes, Attribute
+                4. Elements, Pseudo-Elements
+
+                Example:
+
+                    1.  .button {
+                            font-size: 20px;
+                            color: white;
+                            background-color: blue;
+                        }
+
+                        Specificity Score:
+                            Inline:   0
+                            IDs:      0
+                            Class:    1
+                            Elements: 0
+
+
+                    2.  nav#nav div.pull-right .button {
+                            background-color: green;
+                        }
+
+                        Specificity Score:
+                            Inline:   0
+                            IDs:      1
+                            Class:    2
+                            Elements: 2
+            
+            - Source Order:
+                The last declaration in the code will override all other declarations and will be applied.
 
 ! Section 4:  SASS & NPM
 
