@@ -1,2 +1,4 @@
 # ist-350
 Notes and documents for class.
+
+# WARNING, CODE HAS SECURITY VULNERABILITIES, THIS IS ONLY FOR EDUCATION.
