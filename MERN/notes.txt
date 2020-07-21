@@ -72,13 +72,192 @@ Deployment:
         CMD: git push heroku master
 
 
+Auth w/ Google OAUTH:  (Hardest Concept)
+
+    Workflow:
+        1. Client:
+            User Clicks 'Login'
+
+        2. Server:
+            Forwards Request to Google
+
+        3. Google:
+            Asks user if they grant permission
+            Begins OAUTH Flow.
+
+    Helper Library: (Passport.js)
+
+        Handles the communications between google and the server side code.
+
+        Flaws:
+            1. Automates the majority of the flow, but requires tweaking
+            2. Confusion w/ Library Components
+                Passport - General Helpers and Logic
+                Passport Stategy - Helpers for Auth w/ Specific Provider (Google, Facebook, Etc)
+
+    Installing Passport:
+
+        npm install --save passport passport-google-oauth20
+    
+        Add the dependencies to index.js
+
+
+    Google Strategy:
+        
+        Setup New Project on Google Cloud Platform:
+        Get API Keys for your project.
+
+    Securing API Keys:
+
+        clientID - Public Token
+        clientSecret - Private Token
+
+        Setup keys.js in /config and add the file to .gitignore
+
+    Route Handling for Callback URL:
+        Handled via Express.
+        Google tracks redirect URI's to prevent malicious inputs. (Specified in the GCP API Portal)
+
+    Callbacks:
+
+
+Automating Code Deployments:
+
+    npm install --save nodemon
+    Edit package.json, add "dev" to "scripts": { ..., "dev": "nodemon index.js"}
+
+    nodemon will restart the server upon saved file updates.
+
+
+Refactoring the Codebase:
+
+    Folder Structure:
+
+        /Server:
+            /Config:        API Keys and Settings
+            /Routes:        All Route Handlers
+            /Services:      Helper Modules and Business Logic
+            index.js
+
+
+Cookie Based Authentication:
+    Cookie will handle auth information.
+
+    Email and Password Flow:
+
+        Time --> --> -->
+        1. Sign Up  -->  2. Sign Out  -->  3. Login
+        
+        1. Creates new keypair
+        3. Match keypair, Authenticate.
+
+
+    OAUTH Flow:
+
+        Time --> --> -->
+        1. Sign Up  -->  2. Sign Out  -->  3. Login
+        
+        1. Heres a Google Profile
+        3. Heres a Google Profile, Do the profiles Match?
+
+
+MongoDB Introduction:
+
+    Note: uses mongoose.js to speed up DB Interaction
+
+    Mongo stores data via collections.
+
+    Comparisons to SQL:
+        Schemaless.
+        Collection == Like a table
+        Record == Like a row
+
+    Mongo Instance:
+
+        Users Collection:
+            JSON Record Object of Data.
+
+        Posts Collection:
+            JSON Record Object of Data.
+        
+        Payments Collection:
+            JSON Record Object of Data.
+
+    Mongoose:
+        Model Class == Collection
+        Model Instance == JSON Record
+    
+    Can use free tier MongoDB Hosting (Section 4: Adding Mongo DB, Lesson 35)
+
+
+    Install Mongoose:
+        npm install --save mongoose
+        Create /models and User.js
+
+    By using mongoose queries to look for google id's in the User Collection, Authentication Flow can resume.
+
+
+    Passport Callbacks:
+        Encoding & Decoding Serialization
+        Allows manipulation of the data within the cookie.
+
+
+    Enabling Cookies:
+        npm install --save cookie-session
+        Create a cookie key
+        start the passport session
+
+    Enable Logout:
+        Add an express route and call passports logout function.
 
 
 
+Dev vs Prod Environments:
+
+    1 set of keys for local testing, and 1 set of keys for production.
+    You have to re-create a new set of keys for prod.
+
+    Place Heroku redirect domain instead of localhost.
+    Create Heroku Environment Variables
+
+    Heroku Proxy Issues May Arise.
+        
+        Possible Issues:
+            1. Passport.js callback path is relative, and therefore is assumed http, not https, issue involves the google strategy.
+            2. The Heroku Proxy may need trusted via a configuration setting or explicitly using an FQDN instead of a relative path.
 
 
+Client Side Introduction:
+
+    Create React App:
+        npx create-react-app client
+
+    The starter application creates its own server which will create problems.
+
+    Server 1: Handles the Data Components
+        MongoDB --> Express Server --> JSON Stuff --> Webpage
+
+    Server 2: Packs the frontend Components into one Bundle
+        Button.js, App.js, Header.js --> React Server --> JS Stuff --> Webpage
 
 
+    Handling Multiple Servers:
+        There will be 2 package.json for server and client.
+        Modify the server package.json:
+            add "client" to "scripts": { ..., "client": "npm run start --prefix client"}
+            change "dev" in "scripts": { ..., "server": "nodemon index.js"}
+            add "dev" to "scripts": { ..., "dev": "concurrently \"npm run server\" \"npm run client\" "}
+
+    Routing Blocker Lesson: (Later Update has resolved the issue, Workaround Unnecessary.)
+
+    Add the Sign in w/ Google to the Front End.
 
 
+Developing the Client Side:
+
+    Refactoring traditonal promises to await/async.
+
+    Incorperating react components into the Front End.
+
+    
 
